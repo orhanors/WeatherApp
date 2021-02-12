@@ -8,7 +8,7 @@ interface Props {
 function Map(props: Props) {
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
-		googleMapsApiKey: "AIzaSyDVsIZDGOpPbws_BJqyBpegjKXgR4MLBGo",
+		googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY || "",
 	});
 
 	const containerStyle = {
@@ -18,6 +18,7 @@ function Map(props: Props) {
 		//marginBottom: "10%",
 		border: "1px solid gray",
 		borderRadius: "15px",
+		boxShadow: "5px 5px #c0c0c048",
 	};
 	const { lat, lon } = props.coordinations;
 	const center = {
