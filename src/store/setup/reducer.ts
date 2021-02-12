@@ -1,9 +1,9 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import undoReducer from "../undo";
-import testReducer from "../test";
+import weatherReducer from "../weather";
 
 const rootReducer = combineReducers({
-	test: testReducer,
+	weather: weatherReducer,
 	undo: undoReducer,
 });
 

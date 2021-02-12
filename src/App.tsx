@@ -1,14 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
-import { useDispatch } from "react-redux";
-import useCustomSelector from "./store/helpers/useCustomSelector";
-import { apiCall } from "./store/api";
-import { requested, success, failed, testCallBody } from "./store/test";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home/index";
+import { useDispatch } from "react-redux";
+import { loadWeather } from "./store/weather";
 
 function App() {
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(loadWeather("london"));
+	});
 	return (
 		<Router>
 			<Route path='/' exact component={Home} />

@@ -1,0 +1,27 @@
+@import "../../settings.scss";
+.current-day-container {
+	background-color: $cardBackground;
+	margin-top: 20vh;
+	border-radius: 15px;
+	padding: 1rem;
+	.current-day-img {
+		width: 8rem;
+		display: flex;
+		justify-content: center;
+	}
+
+	.amount {
+		font-size: 4rem;
+	}
+	.celcius-symbol {
+		font-size: 1.5rem;
+	}
+
+	.current-time {
+		font-size: 1.2rem;
+	}
+
+	small {
+		font-size: 1rem;
+	}
+}

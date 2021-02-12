@@ -39,7 +39,7 @@ const api: Middleware = ({ dispatch }: MiddlewareAPI) => (
 		//Spesific
 		if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
 	} catch (error) {
-		console.log("axios response is: ", error);
+		console.log("axios error is: ", error);
 		//General error action
 		dispatch(actions.apiCallFailed(error.message));
 
