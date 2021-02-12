@@ -1,0 +1,23 @@
+@import "../../settings.scss";
+#navbar-container {
+	// position: relative;
+	// top: 80px;
+	// left: 80px;
+	font-family: "Archivo Black";
+	margin-left: 18rem;
+}
+#original {
+	font-size: 5em;
+	letter-spacing: 0.3em;
+	color: $headerTitleColor;
+	transform: skewX(6deg);
+}
+#original::after {
+	content: "......";
+	position: absolute;
+	top: 9px;
+	left: 26px;
+	color: #bbb;
+	z-index: -1;
+	transform: rotateX(-46deg) skewX(-38deg);
+}

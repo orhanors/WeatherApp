@@ -4,16 +4,39 @@ import "./styles.scss";
 import Main from "../../components/Main/index";
 import Map from "../../components/Map/index";
 import useCustomSelector from "../../store/helpers/useCustomSelector";
+import { Container, Row, Col } from "react-bootstrap";
+import NavBar from "../../components/NavBar/index";
 const Home = () => {
 	const { city } = useCustomSelector((store) => store.weather.data);
 	return (
-		<div>
+		<div className='home'>
 			<Sidebar />
 			<div className='main-right'>
-				<Main />
+				<NavBar city={city.name} />
+			</div>
+			<div>
+				<Container>
+					<Row>
+						<Col>
+							<div className='mb-5'>
+								<Map
+									coordinations={city.coord}
+									city={city.name}
+								/>
+							</div>
+						</Col>
+						<Col>
+							<div className='main'>
+								<Main />
+							</div>
+						</Col>
+					</Row>
+				</Container>
 			</div>
 
-			<Map coordinations={city.coord} city={city.name} />
+			<div className='google-map'>
+				{/* <Map coordinations={city.coord} city={city.name} /> */}
+			</div>
 		</div>
 	);
 };

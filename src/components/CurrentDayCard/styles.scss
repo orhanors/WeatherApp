@@ -1,9 +1,17 @@
 @import "../../settings.scss";
 .current-day-container {
 	background-color: $cardBackground;
-	margin-top: 20vh;
+	color: $cardColor;
+	margin-top: 15vh;
+	margin-bottom: 5vh;
 	border-radius: 15px;
 	padding: 1rem;
+	.current-title {
+		font-size: 2rem;
+		font-weight: 600;
+		margin-bottom: 0;
+		font-family: "Courier New", Courier, monospace;
+	}
 	.current-day-img {
 		width: 8rem;
 		display: flex;

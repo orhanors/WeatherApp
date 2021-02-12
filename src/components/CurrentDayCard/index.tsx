@@ -7,10 +7,12 @@ import {
 import useCustomSelector from "../../store/helpers/useCustomSelector";
 import "./styles.scss";
 import { FcOvertime } from "react-icons/fc";
+import { FcPodiumWithSpeaker, FcMindMap } from "react-icons/fc";
 function CurrentDayCard() {
 	const { list } = useCustomSelector((store) => store.weather.data);
 	return (
 		<div className='current-day-container'>
+			<p className='current-title d-flex justify-content-center'>TODAY</p>
 			<div className='d-flex justify-content-center'>
 				<img
 					alt='weather'
@@ -29,14 +31,20 @@ function CurrentDayCard() {
 
 				<div className='mt-3'>
 					<div className='feels-like'>
-						<small>feels:</small>{" "}
+						<small>
+							<FcPodiumWithSpeaker />{" "}
+						</small>{" "}
 						{convertKelvinToCelsius(list[0]?.main?.feels_like) +
 							" "}
 						℃
 					</div>
 
 					<div className='wind'>
-						<small>humidity:</small> {list[0]?.main.humidity + " "}%
+						<small>
+							{" "}
+							<FcMindMap />{" "}
+						</small>{" "}
+						{list[0]?.main.humidity + " "}%
 					</div>
 				</div>
 			</div>

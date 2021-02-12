@@ -18,9 +18,9 @@ function Main() {
 		<div>
 			<Container>
 				<Row className='d-flex justify-content-center'>
-					{getOtherDays(list).map((day) => (
-						<Col md={2}>
-							<OtherDaysCard day={day} />
+					{getOtherDays(list).map((day, index) => (
+						<Col md={4}>
+							<OtherDaysCard key={index} day={day} />
 						</Col>
 					))}
 				</Row>

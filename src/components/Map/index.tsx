@@ -12,9 +12,10 @@ function Map(props: Props) {
 	});
 
 	const containerStyle = {
-		width: "30rem",
-		height: "20rem",
-		marginLeft: "50%",
+		width: "25rem",
+		height: "70vh",
+		marginLeft: "45%",
+		//marginBottom: "10%",
 		border: "1px solid gray",
 		borderRadius: "15px",
 	};
@@ -36,15 +37,17 @@ function Map(props: Props) {
 	}, []);
 
 	return isLoaded ? (
-		<GoogleMap
-			mapContainerStyle={containerStyle}
-			center={center}
-			zoom={10}
-			onLoad={onLoad}
-			onUnmount={onUnmount}>
-			{/* Child components, such as markers, info windows, etc. */}
-			<></>
-		</GoogleMap>
+		<div>
+			<GoogleMap
+				mapContainerStyle={containerStyle}
+				center={center}
+				zoom={10}
+				onLoad={onLoad}
+				onUnmount={onUnmount}>
+				{/* Child components, such as markers, info windows, etc. */}
+				<></>
+			</GoogleMap>
+		</div>
 	) : (
 		<></>
 	);

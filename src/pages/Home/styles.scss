@@ -1,4 +1,17 @@
-.main-right {
-	margin-left: 25%;
-	padding: 1.5rem;
+@import "../../settings.scss";
+.home {
+	background-color: $mainBackground;
+	.main-right {
+		margin-left: 25%;
+		padding: 0.5rem;
+	}
+
+	.google-map {
+		margin-right: 50%;
+		height: 100vh;
+	}
+
+	.main {
+		margin-left: 20%;
+	}
 }

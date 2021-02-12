@@ -13,11 +13,13 @@ interface Props {
 function OtherDaysCard(props: Props) {
 	const { day } = props;
 	return (
-		<div className='other-days-card-contaniner d-flex flex-column justify-content-center'>
+		<div className='other-days-card-contaniner d-flex flex-column justify-content-center mb-5'>
 			<Container>
 				<Row>
 					<Col className='d-flex justify-content-center'>
-						<p className='day ml-3'>{timeConverter(day?.dt)}</p>
+						<p className='day'>
+							{timeConverter(day?.dt).substring(0, 6)}
+						</p>
 					</Col>
 
 					<Col className='d-flex justify-content-center'>

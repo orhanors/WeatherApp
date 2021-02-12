@@ -59,6 +59,6 @@
 
 .flip-box-back {
 	background-color: $cardBackground;
-	color: rgb(0, 0, 0);
+	color: $cardColor;
 	transform: rotateY(180deg);
 }

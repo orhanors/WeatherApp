@@ -8,14 +8,19 @@ import img1 from "../../assets/v1.jpg";
 import img2 from "../../assets/v2.jpg";
 import img3 from "../../assets/v3.jpg";
 import img4 from "../../assets/v5.png";
-
+import { convertKelvinToCelsius } from "../../helpers/weatherUtilities";
+import { FcPodiumWithSpeaker, FcMindMap } from "react-icons/fc";
 const Sidebar = () => {
 	const images: string[] = [img1, img2, img3, img4];
+
+	const randomElement = (array: string[]) => {
+		return array[Math.floor(Math.random() * array.length)];
+	};
 	return (
 		<div className='sidebar'>
 			<SearchBar />
 			<CurrentDayCard />
-			<CityImage image={img1} />
+			<CityImage image={randomElement(images)} />
 		</div>
 	);
 };
@@ -24,7 +29,7 @@ interface ImageType {
 	image: string;
 }
 const CityImage = (props: ImageType) => {
-	const { city } = useCustomSelector((store) => store.weather.data);
+	const { city, list } = useCustomSelector((store) => store.weather.data);
 	return (
 		<div className='flip-box my-3'>
 			<div className='flip-box-inner'>
@@ -42,7 +47,25 @@ const CityImage = (props: ImageType) => {
 				</div>
 				<div className='flip-box-back'>
 					<h2>{city?.name}</h2>
-					<p>What an amazing city</p>
+					<div>
+						<div className='feels-like'>
+							<small>
+								{" "}
+								<FcPodiumWithSpeaker />{" "}
+							</small>{" "}
+							{convertKelvinToCelsius(list[0]?.main?.feels_like) +
+								" "}
+							℃
+						</div>
+
+						<div className='wind'>
+							<small>
+								{" "}
+								<FcMindMap />{" "}
+							</small>{" "}
+							{list[0]?.main.humidity + " "}%
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

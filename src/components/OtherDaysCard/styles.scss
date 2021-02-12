@@ -2,6 +2,13 @@
 
 .other-days-card-contaniner {
 	background-color: $othersCardBackground;
+	color: black;
 	padding: 1rem;
 	border-radius: 20px;
+	width: 10rem;
+
+	.day {
+		font-size: 0.8rem !important;
+		font-weight: 700;
+	}
 }
