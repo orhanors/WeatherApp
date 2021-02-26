@@ -2,7 +2,7 @@
 	"compilerOptions": {
 		"target": "es5",
 		"types": ["google.maps"],
-		"lib": ["dom", "dom.iterable", "esnext"],
+		"lib": ["dom", "dom.iterable", "esnext", "ES6"],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"esModuleInterop": true,

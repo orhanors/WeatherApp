@@ -21,3 +21,9 @@
 	z-index: -1;
 	transform: rotateX(-46deg) skewX(-38deg);
 }
+
+.fav-btn {
+	&:hover {
+		cursor: pointer;
+	}
+}

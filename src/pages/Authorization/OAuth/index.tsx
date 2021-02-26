@@ -34,7 +34,7 @@ function OAuth() {
 					Continue with Google
 				</div>
 			</a>
-			<a href={process.env.REACT_APP_BE_URL + "users/facebookLogin"}>
+			<a href={process.env.REACT_APP_BE_URL + "/users/facebookLogin"}>
 				<div className='auth-provider facebook-login'>
 					<svg
 						aria-hidden='true'

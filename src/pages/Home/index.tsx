@@ -10,10 +10,7 @@ import { useDispatch } from "react-redux";
 import { getUserProfile } from "../../store/user";
 const Home = () => {
 	const { city } = useCustomSelector((store) => store.weather.data);
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(getUserProfile());
-	}, []);
+
 	return (
 		<div className='home'>
 			<Sidebar />

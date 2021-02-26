@@ -60,5 +60,21 @@
 .flip-box-back {
 	background-color: $cardBackground;
 	color: $cardColor;
+	overflow-x: hidden;
+	overflow-y: auto;
 	transform: rotateY(180deg);
+}
+
+//button
+.logout-btn {
+	background-color: transparent;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	border-radius: 20px;
+	&:hover {
+		background-color: black;
+		color: white;
+	}
 }

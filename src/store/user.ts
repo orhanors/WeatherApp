@@ -18,7 +18,7 @@ const slice = createSlice({
 			...state,
 			loading: true,
 		}),
-		loginSuccess: (state, action: PayloadAction<IUser>) => ({
+		loginSuccess: (state, action: PayloadAction<object>) => ({
 			...state,
 			loading: false,
 			isLoggedIn: true,
@@ -35,10 +35,29 @@ const slice = createSlice({
 			loading: false,
 			errorMessage: action.payload,
 		}),
+		addFavoriteSuccess: (state, action: PayloadAction<object>) => ({
+			...state,
+			loading: false,
+			isLoggedIn: true,
+			data: action.payload,
+		}),
+		removeFromFavoriteSuccess: (state, action: PayloadAction<object>) => ({
+			...state,
+			loading: false,
+			isLoggedIn: true,
+			data: action.payload,
+		}),
 	},
 });
 
-export const { requested, loginSuccess, logoutSuccess, failed } = slice.actions;
+export const {
+	requested,
+	loginSuccess,
+	logoutSuccess,
+	failed,
+	addFavoriteSuccess,
+	removeFromFavoriteSuccess,
+} = slice.actions;
 
 export default slice.reducer;
 
@@ -55,5 +74,22 @@ export const logout = () =>
 		url: `http://localhost:3001/api/users/logout`,
 		onStart: requested.type,
 		onSuccess: logoutSuccess.type,
+		onError: failed.type,
+	});
+
+export const addFavoriteCity = (keyword: string) =>
+	apiCall({
+		url: `http://localhost:3001/api/users/favorites/${keyword}`,
+		onStart: requested.type,
+		onSuccess: addFavoriteSuccess.type,
+		onError: failed.type,
+	});
+
+export const removeFavoriteFromCities = (keyword: string) =>
+	apiCall({
+		url: `http://localhost:3001/api/users/favorites/${keyword}`,
+		method: "delete",
+		onStart: requested.type,
+		onSuccess: removeFromFavoriteSuccess.type,
 		onError: failed.type,
 	});
