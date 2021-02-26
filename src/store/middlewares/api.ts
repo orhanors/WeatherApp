@@ -1,13 +1,30 @@
+/**
+ * Refresh auth logic makes another call if it see 401
+ *
+ */
+
 import axios from "axios";
 import { MiddlewareAPI, Dispatch, Middleware, AnyAction } from "redux";
 import * as actions from "../api";
+import createAuthRefreshInterceptor from "axios-auth-refresh";
+const { REACT_APP_BE_URL } = process.env;
+const refreshAuthLogic = (failedRequest: any) =>
+	axios({
+		url: `${REACT_APP_BE_URL}/users/refreshToken`,
+		withCredentials: true,
+		method: "get",
+	}).then((tokenRefreshResponse) => {
+		return Promise.resolve();
+	});
+
+createAuthRefreshInterceptor(axios, refreshAuthLogic);
+
 const api: Middleware = ({ dispatch }: MiddlewareAPI) => (
 	next: Dispatch<AnyAction>
 ) => async (action: AnyAction) => {
 	console.log("action is: ", action);
 	if (action.type !== actions.apiCall.type) {
 		//if action is not for api call,go to the next step
-		console.log("tyep is: ", actions.apiCall.type);
 		return next(action);
 	}
 
@@ -26,12 +43,12 @@ const api: Middleware = ({ dispatch }: MiddlewareAPI) => (
 	if (onStart) dispatch({ type: onStart });
 	//next(action); //we can also delete this. It's for seeing the 'api' action details
 	try {
-		console.log("url is: ", url);
 		const response = await axios({
 			url,
 			method,
 			data,
 			headers,
+			withCredentials: true,
 		});
 
 		//General
@@ -39,12 +56,13 @@ const api: Middleware = ({ dispatch }: MiddlewareAPI) => (
 		//Spesific
 		if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
 	} catch (error) {
-		console.log("axios error is: ", error);
+		console.log("errorr is: ", error.response.data);
 		//General error action
-		dispatch(actions.apiCallFailed(error.message));
+		const errorMessage = error.response.data.errors;
+		dispatch(actions.apiCallFailed(errorMessage));
 
 		//Spesific error action
-		if (onError) dispatch({ type: onError, payload: error.message });
+		if (onError) dispatch({ type: onError, payload: errorMessage });
 	}
 };
 

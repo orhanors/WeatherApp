@@ -57,7 +57,7 @@ export default slice.reducer;
 
 export const loadWeather = (keyword: string) =>
 	apiCall({
-		url: `https://api.openweathermap.org/data/2.5/forecast?q=${keyword}&appid=eed5642c06252c49dccb7d54648c7cf9`,
+		url: `${process.env.REACT_APP_BE_URL}/weather/${keyword}`,
 		//headers: {},
 		onStart: requested.type,
 		onSuccess: success.type,

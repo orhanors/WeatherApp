@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Sidebar from "../../components/Sidebar";
 import "./styles.scss";
 import Main from "../../components/Main/index";
@@ -6,8 +6,14 @@ import Map from "../../components/Map/index";
 import useCustomSelector from "../../store/helpers/useCustomSelector";
 import { Container, Row, Col } from "react-bootstrap";
 import NavBar from "../../components/NavBar/index";
+import { useDispatch } from "react-redux";
+import { getUserProfile } from "../../store/user";
 const Home = () => {
 	const { city } = useCustomSelector((store) => store.weather.data);
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(getUserProfile());
+	}, []);
 	return (
 		<div className='home'>
 			<Sidebar />

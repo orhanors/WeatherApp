@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Coord } from "../../types/weather";
+
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 interface Props {
 	coordinations: Coord;
@@ -46,7 +47,6 @@ function Map(props: Props) {
 				onLoad={onLoad}
 				onUnmount={onUnmount}>
 				{/* Child components, such as markers, info windows, etc. */}
-				<></>
 			</GoogleMap>
 		</div>
 	) : (
