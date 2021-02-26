@@ -63,7 +63,7 @@ export default slice.reducer;
 
 export const getUserProfile = () =>
 	apiCall({
-		url: `http://localhost:3001/api/users/me`,
+		url: `${process.env.REACT_APP_BE_URL}/users/me`,
 		onStart: requested.type,
 		onSuccess: loginSuccess.type,
 		onError: failed.type,
@@ -71,7 +71,7 @@ export const getUserProfile = () =>
 
 export const logout = () =>
 	apiCall({
-		url: `http://localhost:3001/api/users/logout`,
+		url: `${process.env.REACT_APP_BE_URL}/users/logout`,
 		onStart: requested.type,
 		onSuccess: logoutSuccess.type,
 		onError: failed.type,
@@ -79,7 +79,7 @@ export const logout = () =>
 
 export const addFavoriteCity = (keyword: string) =>
 	apiCall({
-		url: `http://localhost:3001/api/users/favorites/${keyword}`,
+		url: `${process.env.REACT_APP_BE_URL}/users/favorites/${keyword}`,
 		onStart: requested.type,
 		onSuccess: addFavoriteSuccess.type,
 		onError: failed.type,
@@ -87,7 +87,7 @@ export const addFavoriteCity = (keyword: string) =>
 
 export const removeFavoriteFromCities = (keyword: string) =>
 	apiCall({
-		url: `http://localhost:3001/api/users/favorites/${keyword}`,
+		url: `${process.env.REACT_APP_BE_URL}/users/favorites/${keyword}`,
 		method: "delete",
 		onStart: requested.type,
 		onSuccess: removeFromFavoriteSuccess.type,
