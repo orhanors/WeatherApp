@@ -20,6 +20,7 @@ function App() {
 	return (
 		<Router>
 			<ProtectedRoute path='/' exact component={Home} />
+
 			<Route path='/login' exact component={Login} />
 			<Route path='/signup' exact component={Signup} />
 		</Router>
