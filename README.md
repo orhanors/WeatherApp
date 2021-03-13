@@ -18,7 +18,7 @@ npm start
 REACT_APP_GOOGLE_API_KEY
 REACT_APP_BE_URL
 ```
-If you run the related [backend](https://github.com/orhanors/WeatherApp-BE) on locally you can set REACT_APP_BE_URL = =http://localhost:3001/api
+If you run the related [backend](https://github.com/orhanors/WeatherApp-BE) on locally you can set REACT_APP_BE_URL=http://localhost:3001/api
 </details>
 
 
