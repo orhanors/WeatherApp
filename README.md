@@ -3,7 +3,7 @@
 ### Features
 
 <details>
-<summary><b> Search from WeatherAPI </b></summary>
+<summary><b> Search from WeatherAPI</b></summary>
     </br>
     <p> You can search whatever city you want around the world and you'll see the next 6 days weather report </p>
    <a href="https://github.com/orhanors/WeatherApp/blob/master/screenshots/w1.png">
