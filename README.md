@@ -1,5 +1,29 @@
 # WeatherApp with TypeScript and Redux
 
+<details>
+<summary><b> Initial Setup </b></summary>
+    </br>
+    <p> To run this project locally on port 3000, run the following commands: </p>
+  
+```bash
+npm i 
+```
+```bash
+npm start 
+```
+
+ <p> Create a .env file under the project root folder and put following variables inside of it </p>
+
+```bash
+REACT_APP_GOOGLE_API_KEY
+REACT_APP_BE_URL
+```
+If you run the related [backend](https://github.com/orhanors/WeatherApp-BE) on locally you can set REACT_APP_BE_URL = =http://localhost:3001/api
+</details>
+
+
+
+
 ### Features
 
 <details>
